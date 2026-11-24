@@ -12,6 +12,8 @@ T={
  apps='Våre apper', appslead='Små verktøy og spill, hver med én tydelig jobb.',
  sk='Skann dokumenter, få dem lest høyt og lytt mens du gjør noe annet.', lt='Rydd bildebiblioteket raskt: duplikater, skjermbilder og store videoer.', wa='Ordspill der du bygger en bro av ord tvers over brettet. På norsk og engelsk.',
  live='I App Store', soon='Kommer snart', visit='Besøk nettsiden →',
+ ios='iPhone og iPad', android='Android', st_live='I App Store', st_test='I testing', st_later='Kommer senere',
+ ios_sum='Alle appene ligger i App Store.', android_sum='Skanlio er i testing nå. De andre kommer etter hvert.',
  company='Om selskapet',
  f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge'),('Org.nr.','938 917 523')],
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
@@ -28,6 +30,8 @@ T={
  apps='Our apps', appslead='Small tools and games, each with one clear job.',
  sk='Scan documents, have them read aloud and listen while you do something else.', lt='Tidy your photo library fast: duplicates, screenshots and large videos.', wa='A word game where you build a bridge of words across the board. In English and Norwegian.',
  live='On the App Store', soon='Coming soon', visit='Visit the website →',
+ ios='iPhone and iPad', android='Android', st_live='On the App Store', st_test='In testing', st_later='Coming later',
+ ios_sum='All our apps are on the App Store.', android_sum='Skanlio is in testing now. The others will follow.',
  company='Company details',
  f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway'),('Org. no.','938 917 523')],
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
@@ -39,10 +43,16 @@ for k,t in T.items():
     p=t['p']
     vals=''.join(f'<div class="value reveal"><span class="vicon" aria-hidden="true">{e}</span><h3>{a}</h3><p>{b}</p></div>' for e,a,b in t['v'])
     facts=''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in t['f'])
-    def card(cls,img,name,text,badge,url,live):
+    ST={'live':('live',t['st_live']),'test':('test',t['st_test']),'later':('',t['st_later'])}
+    def chip(label,status):
+        c,s=ST[status]
+        return f'<li class="plat {c}"><span>{label}</span><b>{s}</b></li>'
+    def card(cls,img,name,text,url,ios,android):
         return f'''<a class="app {cls} reveal" href="{url}">
   <img src="{p}assets/{img}.png" alt="">
-  <div class="apptext"><div class="apphead"><strong>{name}</strong><em class="badge{' live' if live else ''}">{badge}</em></div><p>{text}</p><span class="visit">{t['visit']}</span></div>
+  <div class="apptext"><div class="apphead"><strong>{name}</strong></div><p>{text}</p>
+  <ul class="plats">{chip(t['ios'],ios)}{chip(t['android'],android)}</ul>
+  <span class="visit">{t['visit']}</span></div>
 </a>'''
     html=f'''<!doctype html>
 <html lang="{t['lang']}">
@@ -51,10 +61,10 @@ for k,t in T.items():
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{t['title']}</title>
 <meta name="description" content="{t['desc']}">
-<meta name="theme-color" content="#0f1024">
+<meta name="theme-color" content="#071c31">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=2">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}}}},"identifier":"938917523"</script>
+<link rel="stylesheet" href="{p}style.css?v=3">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
 <section class="hero">
@@ -84,10 +94,14 @@ for k,t in T.items():
 
   <h2 id="apper" class="reveal">{t['apps']}</h2>
   <p class="sublead reveal">{t['appslead']}</p>
+  <div class="platsum reveal">
+    <div class="ps ios"><strong>{t['ios']}</strong><span>{t['ios_sum']}</span></div>
+    <div class="ps android"><strong>{t['android']}</strong><span>{t['android_sum']}</span></div>
+  </div>
   <div class="apps">
-    {card('skanlio','skanlio','Skanlio',t['sk'],t['live'],'https://skanlio.app/',True)}
-    {card('lumtidy','lumtidy','Lumtidy',t['lt'],t['live'],'https://lumtidy.app/',True)}
-    {card('wordarc','wordarc','Wordarc',t['wa'],t['live'],'https://wordarc.app/',True)}
+    {card('skanlio','skanlio','Skanlio',t['sk'],'https://skanlio.app/','live','test')}
+    {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','later')}
+    {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','later')}
   </div>
 
   <div class="twocol">
@@ -144,7 +158,7 @@ document.querySelector('form.contact').addEventListener('submit', async (e) => {
 import re
 for f,p in [('personvern.html',''),('en/privacy.html','../')]:
     s=open(f).read()
-    s=s.replace(f'<link rel="stylesheet" href="{p}style.css?v=2">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css?v=2">',1) if 'favicon' not in s else s
+    s=s.replace(f'<link rel="stylesheet" href="{p}style.css?v=3">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css?v=3">',1) if 'favicon' not in s else s
     s=s.replace('<body><div class="wrap">','<body class="plain"><div class="wrap">')
     open(f,'w').write(s)
 import shutil; shutil.copy('assets/logo.svg','assets/favicon.svg')

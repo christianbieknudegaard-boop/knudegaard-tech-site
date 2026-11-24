@@ -77,8 +77,20 @@ h2 { font-size: 30px; letter-spacing: -0.02em; margin: 80px 0 6px; }
 .apphead strong { font-size: 21px; letter-spacing: -0.01em; }
 .app p { margin: 6px 0 14px; color: var(--muted); font-size: 15px; }
 .visit { font-size: 15px; font-weight: 600; color: rgb(var(--tint)); }
-.badge { font-style: normal; font-size: 12px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); background: var(--card); border-radius: 99px; padding: 3px 10px; white-space: nowrap; }
-.badge.live { color: #fff; background: #2f9e44; border-color: #2f9e44; }
+.plats { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; padding: 0; }
+.plat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); border: 1px solid var(--line); background: var(--card); border-radius: 99px; padding: 4px 10px 4px 9px; white-space: nowrap; }
+.plat span { font-weight: 600; color: var(--text); }
+.plat b { font-weight: 500; }
+.plat::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #a8a8b0; }
+.plat.live::before { background: #2f9e44; }
+.plat.test::before { background: #f08c00; }
+.platsum { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 18px; }
+.ps { display: flex; flex-direction: column; gap: 2px; padding: 14px 18px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
+.ps strong { display: flex; align-items: center; gap: 8px; }
+.ps strong::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--accent); }
+.ps.android strong::before { background: var(--accent2); }
+.ps strong { font-size: 16px; }
+.ps span { color: var(--muted); font-size: 15px; }
 
 /* Selskap og kontakt */
 .twocol { display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px; align-items: start; }
@@ -128,7 +140,7 @@ body.plain .wrap { max-width: 760px; }
   .stack .i1 { left: 6%; top: 30%; }
   .stack .i2 { left: 38%; top: 2%; width: 92px; height: 92px; border-radius: 21px; }
   .stack .i3 { left: 62%; top: 38%; width: 98px; height: 98px; border-radius: 22px; }
-  .values, .apps, .twocol { grid-template-columns: 1fr; }
+  .values, .apps, .twocol, .platsum { grid-template-columns: 1fr; }
   h2 { margin-top: 60px; font-size: 26px; }
 }
 @media (max-width: 520px) {
