@@ -1,1 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7b5cff"/><stop offset="1" stop-color="#22b8cf"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#g)"/><text x="32" y="44" text-anchor="middle" font-family="-apple-system,Helvetica,Arial" font-weight="800" font-size="34" fill="#fff">K</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 460" width="460" height="460">
+  <title>Knudegaard Apps</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a74a8"/>
+      <stop offset="0.55" stop-color="#0a4a75"/>
+      <stop offset="1" stop-color="#08233d"/>
+    </linearGradient>
+    <linearGradient id="up" x1="124" y1="370" x2="370" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.35" stop-color="#bff3e6"/>
+      <stop offset="0.7" stop-color="#4fdcc0"/>
+      <stop offset="1" stop-color="#8ff7b6"/>
+    </linearGradient>
+    <linearGradient id="down" x1="215" y1="230" x2="383" y2="368" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b8f9c"/>
+      <stop offset="1" stop-color="#2cefb0"/>
+    </linearGradient>
+  </defs>
+  <rect width="460" height="460" rx="112" fill="url(#bg)"/>
+  <path d="M212 234 L262 188 L378 352 Q382 368 366 368 L296 368 Z" fill="url(#down)"/>
+  <path d="M116 106 Q116 92 130 92 L198 92 L198 368 L128 368 Q116 368 116 356 Z" fill="#ffffff"/>
+  <path d="M122 368 L282 98 Q286 92 294 92 L362 92 Q376 94 368 106 L214 368 Z" fill="url(#up)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M90 186 L44 233 L90 280"/>
+    <path d="M370 186 L416 233 L370 280"/>
+  </g>
+</svg>

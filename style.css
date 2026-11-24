@@ -31,8 +31,7 @@ a { color: var(--accent); }
   background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: 22px 22px; }
 header { padding: 26px 0 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .brand { font-weight: 700; font-size: 18px; text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; }
-.mark { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; font-weight: 800; font-size: 16px; color: #fff;
-  background: linear-gradient(135deg, #7b5cff, #22b8cf); box-shadow: 0 4px 14px rgba(91,75,255,.45); }
+.mark { width: 32px; height: 32px; border-radius: 8px; display: block; box-shadow: 0 4px 14px rgba(10,74,117,.45); }
 .lang { font-size: 14px; color: rgba(255,255,255,.85); text-decoration: none; border: 1px solid rgba(255,255,255,.25); padding: 5px 12px; border-radius: 99px; backdrop-filter: blur(8px); }
 .herogrid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding-top: 72px; }
 .eyebrow { display: inline-block; margin: 0 0 18px; font-size: 14px; font-weight: 600; letter-spacing: .02em; color: #c9c2ff;

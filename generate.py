@@ -52,7 +52,7 @@ for k,t in T.items():
 <title>{t['title']}</title>
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#0f1024">
-<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
 <link rel="stylesheet" href="{p}style.css">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}}}},"identifier":"938917523"</script>
 </head>
@@ -61,7 +61,7 @@ for k,t in T.items():
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="wrap">
     <header>
-      <a class="brand" href="{p if p else './'}"><span class="mark">K</span>Knudegaard Apps</a>
+      <a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="32" height="32">Knudegaard Apps</a>
       <a class="lang" href="{t['other']}">{t['otherlabel']}</a>
     </header>
     <div class="herogrid">
@@ -144,7 +144,7 @@ document.querySelector('form.contact').addEventListener('submit', async (e) => {
 import re
 for f,p in [('personvern.html',''),('en/privacy.html','../')]:
     s=open(f).read()
-    s=s.replace(f'<link rel="stylesheet" href="{p}style.css">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{p}style.css">',1) if 'favicon' not in s else s
+    s=s.replace(f'<link rel="stylesheet" href="{p}style.css">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css">',1) if 'favicon' not in s else s
     s=s.replace('<body><div class="wrap">','<body class="plain"><div class="wrap">')
     open(f,'w').write(s)
-open('assets/favicon.svg','w').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7b5cff"/><stop offset="1" stop-color="#22b8cf"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#g)"/><text x="32" y="44" text-anchor="middle" font-family="-apple-system,Helvetica,Arial" font-weight="800" font-size="34" fill="#fff">K</text></svg>')
+import shutil; shutil.copy('assets/logo.svg','assets/favicon.svg')
