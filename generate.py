@@ -53,7 +53,7 @@ for k,t in T.items():
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#0f1024">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css">
+<link rel="stylesheet" href="{p}style.css?v=2">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}}}},"identifier":"938917523"</script>
 </head>
 <body>
@@ -144,7 +144,7 @@ document.querySelector('form.contact').addEventListener('submit', async (e) => {
 import re
 for f,p in [('personvern.html',''),('en/privacy.html','../')]:
     s=open(f).read()
-    s=s.replace(f'<link rel="stylesheet" href="{p}style.css">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css">',1) if 'favicon' not in s else s
+    s=s.replace(f'<link rel="stylesheet" href="{p}style.css?v=2">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css?v=2">',1) if 'favicon' not in s else s
     s=s.replace('<body><div class="wrap">','<body class="plain"><div class="wrap">')
     open(f,'w').write(s)
 import shutil; shutil.copy('assets/logo.svg','assets/favicon.svg')
