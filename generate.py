@@ -13,7 +13,7 @@ T={
  sk='Skann dokumenter, få dem lest høyt og lytt mens du gjør noe annet.', lt='Rydd bildebiblioteket raskt: duplikater, skjermbilder og store videoer.', wa='Ordspill der du bygger en bro av ord tvers over brettet. På norsk og engelsk.',
  live='I App Store', soon='Kommer snart', visit='Besøk nettsiden →',
  company='Om selskapet',
- f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge')],
+ f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge'),('Org.nr.','938 917 523')],
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
  name='Navn', email='E-post', msg='Melding', send='Send melding', sending='Sender …',
  ok='Takk! Meldingen er sendt, og vi svarer så fort vi kan.', err='Noe gikk galt. Prøv igjen litt senere.',
@@ -29,7 +29,7 @@ T={
  sk='Scan documents, have them read aloud and listen while you do something else.', lt='Tidy your photo library fast: duplicates, screenshots and large videos.', wa='A word game where you build a bridge of words across the board. In English and Norwegian.',
  live='On the App Store', soon='Coming soon', visit='Visit the website →',
  company='Company details',
- f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway')],
+ f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway'),('Org. no.','938 917 523')],
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
  name='Name', email='Email', msg='Message', send='Send message', sending='Sending …',
  ok='Thank you! Your message has been sent, and we’ll reply as soon as we can.', err='Something went wrong. Please try again later.',
@@ -54,7 +54,7 @@ for k,t in T.items():
 <meta name="theme-color" content="#0f1024">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{p}style.css">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}}}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}}}},"identifier":"938917523"</script>
 </head>
 <body>
 <section class="hero">
