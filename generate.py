@@ -11,9 +11,10 @@ T={
  v=[('🚫','Ingen reklame','Appene våre tjener penger på at de er gode, ikke på oppmerksomheten din.'),('🔒','Personvern først','Mest mulig skjer på telefonen din. Vi selger aldri data.'),('🇳🇴','Laget i Norge','Utviklet i Lillesand, for brukere over hele verden.')],
  apps='Våre apper', appslead='Små verktøy og spill, hver med én tydelig jobb.',
  sk='Skann dokumenter, få dem lest høyt og lytt mens du gjør noe annet.', lt='Rydd bildebiblioteket raskt: duplikater, skjermbilder og store videoer.', wa='Ordspill der du bygger en bro av ord tvers over brettet. På norsk og engelsk.',
+ oh='Du er fisken. Svøm opp fra korallrevet, unngå kroker og garn, og samle på 24 fisker med hver sin superkraft.',
  live='I App Store', soon='Kommer snart', visit='Besøk nettsiden →',
  ios='iPhone og iPad', android='Android', st_live='I App Store', st_test='I testing', st_later='Kommer senere',
- ios_sum='Alle appene ligger i App Store.', android_sum='Skanlio er i testing nå. De andre kommer etter hvert.',
+ ios_sum='Skanlio, Lumtidy og Wordarc ligger i App Store. Off the Hook kommer snart.', android_sum='Skanlio er i testing nå. De andre kommer etter hvert.',
  company='Om selskapet',
  f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge'),('Org.nr.','938 917 523')],
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
@@ -29,9 +30,10 @@ T={
  v=[('🚫','No ads','Our apps earn money by being good, not by selling your attention.'),('🔒','Privacy first','As much as possible happens on your phone. We never sell data.'),('🇳🇴','Made in Norway','Built in Lillesand, for people all over the world.')],
  apps='Our apps', appslead='Small tools and games, each with one clear job.',
  sk='Scan documents, have them read aloud and listen while you do something else.', lt='Tidy your photo library fast: duplicates, screenshots and large videos.', wa='A word game where you build a bridge of words across the board. In English and Norwegian.',
+ oh='You’re the fish. Swim up from the reef, dodge hooks and nets, and collect 24 fish, each with its own superpower.',
  live='On the App Store', soon='Coming soon', visit='Visit the website →',
  ios='iPhone and iPad', android='Android', st_live='On the App Store', st_test='In testing', st_later='Coming later',
- ios_sum='All our apps are on the App Store.', android_sum='Skanlio is in testing now. The others will follow.',
+ ios_sum='Skanlio, Lumtidy and Wordarc are on the App Store. Off the Hook is coming soon.', android_sum='Skanlio is in testing now. The others will follow.',
  company='Company details',
  f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway'),('Org. no.','938 917 523')],
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
@@ -43,7 +45,7 @@ for k,t in T.items():
     p=t['p']
     vals=''.join(f'<div class="value reveal"><span class="vicon" aria-hidden="true">{e}</span><h3>{a}</h3><p>{b}</p></div>' for e,a,b in t['v'])
     facts=''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a,b in t['f'])
-    ST={'live':('live',t['st_live']),'test':('test',t['st_test']),'later':('',t['st_later'])}
+    ST={'live':('live',t['st_live']),'test':('test',t['st_test']),'soon':('soon',t['soon']),'later':('',t['st_later'])}
     def chip(label,status):
         c,s=ST[status]
         return f'<li class="plat {c}"><span>{label}</span><b>{s}</b></li>'
@@ -63,7 +65,7 @@ for k,t in T.items():
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#071c31">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=3">
+<link rel="stylesheet" href="{p}style.css?v=4">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
@@ -102,6 +104,7 @@ for k,t in T.items():
     {card('skanlio','skanlio','Skanlio',t['sk'],'https://skanlio.app/','live','test')}
     {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','later')}
     {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','later')}
+    {card('offthehook','offthehook','Off the Hook',t['oh'],p+'offthehook/','soon','later')}
   </div>
 
   <div class="twocol">
