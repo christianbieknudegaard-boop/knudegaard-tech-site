@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knudegaard Apps – our apps</title>
+<meta name="description" content="Ad-free apps for iPhone and iPad from Norway: Lumtidy, Skanlio and Wordarc.">
+<meta name="theme-color" content="#071c31">
+<meta property="og:title" content="Knudegaard Apps – ad-free apps from Norway">
+<meta property="og:description" content="Lumtidy · Skanlio · Wordarc – free on the App Store">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+:root { --bg:#071c31; --card:rgba(255,255,255,.07); --line:rgba(255,255,255,.13); --text:#fff; --muted:rgba(255,255,255,.72); }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; min-height:100vh; background:var(--bg); color:var(--text); overflow-x:hidden; isolation:isolate;
+  font:17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+.blob { position:fixed; border-radius:50%; filter:blur(70px); opacity:.5; z-index:-1; }
+.b1 { width:420px; height:420px; background:#0a74a8; top:-160px; left:-140px; }
+.b2 { width:380px; height:380px; background:#12b89a; bottom:-160px; right:-140px; }
+main { max-width:480px; margin:0 auto; padding:40px 16px 32px; }
+.top { text-align:center; margin-bottom:26px; }
+.top img { width:72px; height:72px; border-radius:18px; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+h1 { font-size:24px; margin:14px 0 4px; letter-spacing:-.02em; }
+.top p { margin:0; color:var(--muted); font-size:15px; }
+.app { display:flex; gap:14px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:22px;
+  padding:14px; margin-bottom:14px; text-decoration:none; color:inherit; backdrop-filter:blur(10px); transition:transform .15s; }
+.app:active { transform:scale(.98); }
+.app img { width:68px; height:68px; border-radius:16px; flex:none; }
+.txt { flex:1; min-width:0; }
+.txt strong { display:block; font-size:18px; }
+.txt span { display:block; color:var(--muted); font-size:14px; line-height:1.35; }
+.get { flex:none; background:#fff; color:#071c31; font-weight:700; font-size:15px; padding:8px 16px; border-radius:99px; }
+.note { text-align:center; color:var(--muted); font-size:13px; margin-top:22px; }
+.note a { color:#8ff7b6; }
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div>
+<main>
+  <div class="top">
+    <img src="../assets/apple-touch-icon.png" alt="">
+    <h1>Knudegaard Apps</h1>
+    <p data-en="Ad-free apps for iPhone &amp; iPad · Made in Norway 🇳🇴" data-nb="Apper uten reklame for iPhone og iPad · Laget i Norge 🇳🇴">Ad-free apps for iPhone &amp; iPad · Made in Norway 🇳🇴</p>
+  </div>
+  <a class="app" href="https://apps.apple.com/app/id6837622107">
+    <img src="../assets/lumtidy.png" alt="">
+    <div class="txt"><strong>Lumtidy</strong><span data-en="Free up GBs: duplicates, huge videos and clutter" data-nb="Frigjør GB: duplikater, store videoer og rot">Free up GBs: duplicates, huge videos and clutter</span></div>
+    <span class="get" data-en="Get" data-nb="Hent">Get</span>
+  </a>
+  <a class="app" href="https://apps.apple.com/app/id6831059399">
+    <img src="../assets/skanlio.png" alt="">
+    <div class="txt"><strong>Skanlio</strong><span data-en="Scan any page and hear it read aloud" data-nb="Skann en side og hør den lest høyt">Scan any page and hear it read aloud</span></div>
+    <span class="get" data-en="Get" data-nb="Hent">Get</span>
+  </a>
+  <a class="app" href="https://apps.apple.com/app/id6838085353">
+    <img src="../assets/wordarc.png" alt="">
+    <div class="txt"><strong>Wordarc</strong><span data-en="Word duel: beat a friend or the bot" data-nb="Ordduell: slå en venn eller boten">Word duel: beat a friend or the bot</span></div>
+    <span class="get" data-en="Get" data-nb="Hent">Get</span>
+  </a>
+  <p class="note"><a href="../en/" data-en="About us" data-nb="Om oss">About us</a></p>
+</main>
+<script>
+if ((navigator.language || '').toLowerCase().match(/^(nb|no|nn)/)) {
+  document.documentElement.lang = 'nb';
+  document.querySelectorAll('[data-nb]').forEach(e => e.innerHTML = e.dataset.nb);
+  document.querySelector('.note a').href = '../';
+}
+</script>
+</body>
+</html>
