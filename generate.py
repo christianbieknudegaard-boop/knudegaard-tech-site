@@ -20,7 +20,7 @@ T={
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
  name='Navn', email='E-post', msg='Melding', send='Send melding', sending='Sender …',
  ok='Takk! Meldingen er sendt, og vi svarer så fort vi kan.', err='Noe gikk galt. Prøv igjen litt senere.',
- subject='Ny melding fra knudegaard.no', url='/', locale='nb_NO', og='og.png', privtitle='Personvern – Knudegaard Apps', privdesc='Slik håndterer Knudegaard Apps personopplysninger på knudegaard.no.', privurl='/personvern.html', themel='Bytt mellom lyst og mørkt utseende', privacy='Personvern', privpath='personvern.html'),
+ subject='Ny melding fra knudegaard.no', getapp='App Store', getlabel='Last ned {} i App Store', url='/', locale='nb_NO', og='og.png', privtitle='Personvern – Knudegaard Apps', privdesc='Slik håndterer Knudegaard Apps personopplysninger på knudegaard.no.', privurl='/personvern.html', themel='Bytt mellom lyst og mørkt utseende', privacy='Personvern', privpath='personvern.html'),
 'en':dict(file='en/index.html',p='../',lang='en',other='../',otherlabel='Norsk',title='Knudegaard Apps – app development in Lillesand, Norway',
  desc='Knudegaard Apps builds apps for iPhone, iPad and Android. Thoughtful apps with no ads and no unnecessary data collection.',
  eyebrow='Application development from Lillesand, Norway',
@@ -39,7 +39,7 @@ T={
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
  name='Name', email='Email', msg='Message', send='Send message', sending='Sending …',
  ok='Thank you! Your message has been sent, and we’ll reply as soon as we can.', err='Something went wrong. Please try again later.',
- subject='New message from knudegaard.no', url='/en/', locale='en_US', og='og-en.png', privtitle='Privacy – Knudegaard Apps', privdesc='How Knudegaard Apps handles personal data on knudegaard.no.', privurl='/en/privacy.html', themel='Switch between light and dark appearance', privacy='Privacy', privpath='privacy.html'),
+ subject='New message from knudegaard.no', getapp='App Store', getlabel='Download {} on the App Store', url='/en/', locale='en_US', og='og-en.png', privtitle='Privacy – Knudegaard Apps', privdesc='How Knudegaard Apps handles personal data on knudegaard.no.', privurl='/en/privacy.html', themel='Switch between light and dark appearance', privacy='Privacy', privpath='privacy.html'),
 }
 ICON={
  'noads':'<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
@@ -47,7 +47,7 @@ ICON={
  'pin':'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>'}
 def svg(k): return f'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{ICON[k]}</svg>'
 SITE='https://knudegaard.no'
-CSSV='10'
+CSSV='11'
 THEME_INIT="<script>try{var m=localStorage.getItem('theme');if(m)document.documentElement.dataset.theme=m}catch(e){}</script>"
 MOON='<svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'
 SUN='<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>'
@@ -109,12 +109,15 @@ for k,t in T.items():
     def chip(label,status):
         c,s=ST[status]
         return f'<li class="plat {c}"><span>{label}</span><b>{s}</b></li>'
-    def card(cls,img,name,text,url,ios,android):
-        return f'''<a class="app {cls} reveal" href="{url}">
-  <div class="apphead"><img src="{p}assets/{img}.png" alt="" width="56" height="56"><strong>{name}</strong><span class="arrow" aria-hidden="true">→</span></div>
+    def card(cls,img,name,text,url,ios,android,appid=None):
+        store=(f'<a class="store" href="https://apps.apple.com/app/id{appid}" aria-label="{t["getlabel"].format(name)}">'
+               f'<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>{t["getapp"]}</a>'
+               if appid else '<span class="arrow" aria-hidden="true">→</span>')
+        return f'''<div class="app {cls} reveal">
+  <div class="apphead"><img src="{p}assets/{img}.png" alt="" width="56" height="56"><a class="cardlink" href="{url}"><strong>{name}</strong></a>{store}</div>
   <p>{text}</p>
   <ul class="plats">{chip(t['ios'],ios)}{chip(t['android'],android)}</ul>
-</a>'''
+</div>'''
     html=head(t,p,t['title'],t['desc'],t['url'],ALTS)+f'''
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","url":"{SITE}/","logo":"{SITE}/brand/symbol-512.png","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
@@ -143,9 +146,9 @@ for k,t in T.items():
 
   <div class="sechead reveal" id="apper"><h2>{t['apps']}</h2><p class="sublead">{t['appslead']}</p></div>
   <div class="apps">
-    {card('skanlio','skanlio','Skanlio',t['sk'],'https://skanlio.app/','live','test')}
-    {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','test')}
-    {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','test')}
+    {card('skanlio','skanlio','Skanlio',t['sk'],'https://skanlio.app/','live','test','6831059399')}
+    {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','test','6837622107')}
+    {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','test','6838085353')}
     {card('offthehook','offthehook','Off the Hook',t['oh'],p+'offthehook/','soon','test')}
   </div>
 
