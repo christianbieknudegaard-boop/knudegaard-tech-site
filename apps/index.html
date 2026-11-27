@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Knudegaard Apps – our apps</title>
-<meta name="description" content="Ad-free apps for iPhone and iPad from Norway: Lumtidy, Skanlio and Wordarc.">
+<meta name="description" content="Ad-free apps from Norway: Lumtidy, Skanlio, Wordarc and Off the Hook. On iPhone and iPad, Android coming soon.">
 <meta name="theme-color" content="#071c31">
+<meta property="og:type" content="website"><meta property="og:url" content="https://knudegaard.no/apps/">
 <meta property="og:title" content="Knudegaard Apps – ad-free apps from Norway">
-<meta property="og:description" content="Lumtidy · Skanlio · Wordarc – free on the App Store">
+<meta property="og:description" content="Lumtidy · Skanlio · Wordarc · Off the Hook">
+<meta property="og:image" content="https://knudegaard.no/assets/og-en.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://knudegaard.no/apps/">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <style>
 :root { --bg:#071c31; --card:rgba(255,255,255,.07); --line:rgba(255,255,255,.13); --text:#fff; --muted:rgba(255,255,255,.72); }
@@ -31,6 +35,9 @@ h1 { font-size:24px; margin:14px 0 4px; letter-spacing:-.02em; }
 .txt strong { display:block; font-size:18px; }
 .txt span { display:block; color:var(--muted); font-size:14px; line-height:1.35; }
 .get { flex:none; background:#fff; color:#071c31; font-weight:700; font-size:15px; padding:8px 16px; border-radius:99px; }
+.get.soon { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); font-weight:600; }
+.android { display:flex; gap:10px; align-items:center; justify-content:center; margin:6px 0 0; color:var(--muted); font-size:14px; }
+.android::before { content:""; width:8px; height:8px; border-radius:50%; background:#f08c00; box-shadow:0 0 0 3px rgba(240,140,0,.2); }
 .note { text-align:center; color:var(--muted); font-size:13px; margin-top:22px; }
 .note a { color:#8ff7b6; }
 </style>
@@ -41,7 +48,7 @@ h1 { font-size:24px; margin:14px 0 4px; letter-spacing:-.02em; }
   <div class="top">
     <img src="../assets/apple-touch-icon.png" alt="">
     <h1>Knudegaard Apps</h1>
-    <p data-en="Ad-free apps for iPhone &amp; iPad · Made in Norway 🇳🇴" data-nb="Apper uten reklame for iPhone og iPad · Laget i Norge 🇳🇴">Ad-free apps for iPhone &amp; iPad · Made in Norway 🇳🇴</p>
+    <p data-en="Ad-free apps · Made in Norway 🇳🇴" data-nb="Apper uten reklame · Laget i Norge 🇳🇴">Ad-free apps · Made in Norway 🇳🇴</p>
   </div>
   <a class="app" href="https://apps.apple.com/app/id6837622107">
     <img src="../assets/lumtidy.png" alt="">
@@ -58,6 +65,12 @@ h1 { font-size:24px; margin:14px 0 4px; letter-spacing:-.02em; }
     <div class="txt"><strong>Wordarc</strong><span data-en="Word duel: beat a friend or the bot" data-nb="Ordduell: slå en venn eller boten">Word duel: beat a friend or the bot</span></div>
     <span class="get" data-en="Get" data-nb="Hent">Get</span>
   </a>
+  <a class="app" href="../offthehook/">
+    <img src="../assets/offthehook.png" alt="">
+    <div class="txt"><strong>Off the Hook</strong><span data-en="You’re the fish: dodge hooks and nets" data-nb="Du er fisken: unngå kroker og garn">You’re the fish: dodge hooks and nets</span></div>
+    <span class="get soon" data-en="Soon" data-nb="Snart">Soon</span>
+  </a>
+  <p class="android" data-en="Android: all four apps are in testing now" data-nb="Android: alle fire appene er i testing nå">Android: all four apps are in testing now</p>
   <p class="note"><a href="../en/" data-en="About us" data-nb="Om oss">About us</a></p>
 </main>
 <script>

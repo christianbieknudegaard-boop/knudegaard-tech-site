@@ -154,9 +154,21 @@ footer.site { display: block; padding: 0; margin-top: 120px; border-top: 1px sol
 .fbottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding: 20px 0 36px; border-top: 1px solid var(--line); font-size: 13px; }
 
 /* Personvernsider */
-body.plain header { color: var(--text); }
-body.plain .wrap { max-width: 760px; }
-.prose h1 { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; margin: 56px 0 8px; }
+.topbar.solid { background: var(--hero); border-bottom-color: rgba(255,255,255,.08); }
+body.plain { display: flex; flex-direction: column; min-height: 100vh; }
+.wrap.prose { max-width: 760px; width: 100%; padding-top: 74px; flex: 1; }
+.prose h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin: 64px 0 10px; }
+.prose p { margin: 0 0 16px; }
+.prose > p:last-child { margin-top: 28px; }
+.notfound { text-align: center; padding-bottom: 40px; }
+.notfound .code { margin: 80px 0 0; font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+  background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.notfound h1 { margin-top: 12px; }
+.notfound .sublead { margin: 0 auto 28px; }
+.notfound .ctas { justify-content: center; }
+.notfound .btn.primary { background: var(--hero); color: #fff; box-shadow: none; }
+.notfound .btn.ghost { color: var(--text); border: 1px solid var(--line); }
+body.plain footer.site { margin-top: 80px; }
 
 /* Inn ved scroll */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://knudegaard.no/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://knudegaard.no/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://knudegaard.no/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://knudegaard.no/"/>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/en/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://knudegaard.no/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://knudegaard.no/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://knudegaard.no/"/>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/apps/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/offthehook/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/offthehook/nb/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/personvern.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://knudegaard.no/personvern.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://knudegaard.no/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://knudegaard.no/personvern.html"/>
+  </url>
+  <url>
+    <loc>https://knudegaard.no/en/privacy.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://knudegaard.no/personvern.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://knudegaard.no/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://knudegaard.no/personvern.html"/>
+  </url>
+</urlset>
