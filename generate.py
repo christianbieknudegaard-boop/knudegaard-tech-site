@@ -70,12 +70,12 @@ for k,t in T.items():
 <meta name="theme-color" content="#071c31">
 <script>try{{var m=localStorage.getItem('theme');if(m)document.documentElement.dataset.theme=m}}catch(e){{}}</script>
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=8">
+<link rel="stylesheet" href="{p}style.css?v=9">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="wrap bar">
-  <a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="30" height="30">Knudegaard Apps</a>
+  <a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="40" height="40">Knudegaard Apps</a>
   <nav><a class="hide-sm" href="#apper">{t['nav'][0]}</a><a class="hide-sm" href="#selskap">{t['nav'][1]}</a><a class="hide-sm" href="#kontakt">{t['nav'][2]}</a><button class="theme" type="button" aria-label="{t['themel']}" title="{t['themel']}"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button><a class="lang" href="{t['other']}">{t['otherlabel']}</a></nav>
 </div></header>
 <section class="hero">
@@ -132,7 +132,7 @@ for k,t in T.items():
 </main>
 <footer class="site"><div class="wrap">
   <div class="fgrid">
-    <div class="fbrand"><a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="28" height="28">Knudegaard Apps</a><p>{t['tagline']}</p></div>
+    <div class="fbrand"><a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="36" height="36">Knudegaard Apps</a><p>{t['tagline']}</p></div>
     <div><h4>{t['fapps']}</h4><a href="https://skanlio.app/">Skanlio</a><a href="https://lumtidy.app/">Lumtidy</a><a href="https://wordarc.app/">Wordarc</a><a href="{p}offthehook/">Off the Hook</a></div>
     <div><h4>{t['fco']}</h4><a href="#kontakt">{t['nav'][2]}</a><a href="{t['privpath']}">{t['privacy']}</a><a href="{t['other']}">{t['otherlabel']}</a></div>
   </div>
