@@ -8,9 +8,11 @@
   --accent2: #0e9c8b;
   --hero: #071c31;
 }
+:root { color-scheme: light; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #0d0d12; --card: #17171e; --text: #f1f1f5; --muted: #9b9ba6; --line: #26262f; --accent: #4cc3e6; --accent2: #2cefb0; }
+  :root:not([data-theme="light"]) { --bg: #0d0d12; --card: #17171e; --text: #f1f1f5; --muted: #9b9ba6; --line: #26262f; --accent: #4cc3e6; --accent2: #2cefb0; color-scheme: dark; }
 }
+:root[data-theme="dark"] { --bg: #0d0d12; --card: #17171e; --text: #f1f1f5; --muted: #9b9ba6; --line: #26262f; --accent: #4cc3e6; --accent2: #2cefb0; color-scheme: dark; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
@@ -38,6 +40,17 @@ header { padding: 26px 0 0; display: flex; justify-content: space-between; align
 .topbar nav a { color: rgba(255,255,255,.78); text-decoration: none; font-size: 15px; font-weight: 500; transition: color .2s; }
 .topbar nav a:hover { color: #fff; }
 .topbar nav .lang { color: #fff; }
+.theme { display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0; border-radius: 99px; cursor: pointer; color: #fff;
+  background: transparent; border: 1px solid rgba(255,255,255,.25); transition: background .2s; }
+.theme:hover { background: rgba(255,255,255,.1); }
+.theme svg { width: 17px; height: 17px; }
+.theme .sun { display: none; }
+:root[data-theme="dark"] .theme .sun { display: block; }
+:root[data-theme="dark"] .theme .moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme .sun { display: block; }
+  :root:not([data-theme="light"]) .theme .moon { display: none; }
+}
 .brand { font-weight: 700; font-size: 17px; letter-spacing: -0.01em; text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; }
 .mark { width: 30px; height: 30px; border-radius: 8px; display: block; }
 .lang { font-size: 14px !important; color: rgba(255,255,255,.85); text-decoration: none; border: 1px solid rgba(255,255,255,.25); padding: 5px 12px; border-radius: 99px; backdrop-filter: blur(8px); }

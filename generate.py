@@ -20,7 +20,7 @@ T={
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
  name='Navn', email='E-post', msg='Melding', send='Send melding', sending='Sender …',
  ok='Takk! Meldingen er sendt, og vi svarer så fort vi kan.', err='Noe gikk galt. Prøv igjen litt senere.',
- subject='Ny melding fra knudegaard.no', privacy='Personvern', privpath='personvern.html'),
+ subject='Ny melding fra knudegaard.no', themel='Bytt mellom lyst og mørkt utseende', privacy='Personvern', privpath='personvern.html'),
 'en':dict(file='en/index.html',p='../',lang='en',other='../',otherlabel='Norsk',title='Knudegaard Apps – app development in Lillesand, Norway',
  desc='Knudegaard Apps builds apps for iPhone, iPad and Android. Thoughtful apps with no ads and no unnecessary data collection.',
  eyebrow='Application development from Lillesand, Norway',
@@ -39,7 +39,7 @@ T={
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
  name='Name', email='Email', msg='Message', send='Send message', sending='Sending …',
  ok='Thank you! Your message has been sent, and we’ll reply as soon as we can.', err='Something went wrong. Please try again later.',
- subject='New message from knudegaard.no', privacy='Privacy', privpath='privacy.html'),
+ subject='New message from knudegaard.no', themel='Switch between light and dark appearance', privacy='Privacy', privpath='privacy.html'),
 }
 ICON={
  'noads':'<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
@@ -68,14 +68,15 @@ for k,t in T.items():
 <title>{t['title']}</title>
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#071c31">
+<script>try{{var m=localStorage.getItem('theme');if(m)document.documentElement.dataset.theme=m}}catch(e){{}}</script>
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=7">
+<link rel="stylesheet" href="{p}style.css?v=8">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
 <header class="topbar"><div class="wrap bar">
   <a class="brand" href="{p if p else './'}"><img class="mark" src="{p}assets/logo.svg" alt="" width="30" height="30">Knudegaard Apps</a>
-  <nav><a class="hide-sm" href="#apper">{t['nav'][0]}</a><a class="hide-sm" href="#selskap">{t['nav'][1]}</a><a class="hide-sm" href="#kontakt">{t['nav'][2]}</a><a class="lang" href="{t['other']}">{t['otherlabel']}</a></nav>
+  <nav><a class="hide-sm" href="#apper">{t['nav'][0]}</a><a class="hide-sm" href="#selskap">{t['nav'][1]}</a><a class="hide-sm" href="#kontakt">{t['nav'][2]}</a><button class="theme" type="button" aria-label="{t['themel']}" title="{t['themel']}"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button><a class="lang" href="{t['other']}">{t['otherlabel']}</a></nav>
 </div></header>
 <section class="hero">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
@@ -138,6 +139,11 @@ for k,t in T.items():
   <div class="fbottom"><span>© 2026 Knudegaard Apps</span><span>{t['orgl']} 938 917 523 · Eineråsen 21D, 4790 Lillesand</span></div>
 </div></footer>
 <script>
+document.querySelector('.theme').addEventListener('click', () => {{
+  const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme = dark ? 'light' : 'dark';
+  try {{ localStorage.setItem('theme', r.dataset.theme); }} catch (e) {{}}
+}});
 const tb = document.querySelector('.topbar'), onS = () => tb.classList.toggle('scrolled', scrollY > 12); addEventListener('scroll', onS, {{ passive: true }}); onS();
 const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => es.forEach(e => {{ if (e.isIntersecting) {{ e.target.classList.add('in'); io.unobserve(e.target); }} }}), {{ threshold: 0.12 }}) : null;
 document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
@@ -168,5 +174,7 @@ for f,p in [('personvern.html',''),('en/privacy.html','../')]:
     s=open(f).read()
     s=s.replace(f'<link rel="stylesheet" href="{p}style.css?v=3">',f'<link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png"><link rel="stylesheet" href="{p}style.css?v=3">',1) if 'favicon' not in s else s
     s=s.replace('<body><div class="wrap">','<body class="plain"><div class="wrap">')
+    if "localStorage.getItem('theme')" not in s:
+        s=s.replace('</title>',"</title><script>try{var m=localStorage.getItem('theme');if(m)document.documentElement.dataset.theme=m}catch(e){}</script>",1)
     open(f,'w').write(s)
 import shutil; shutil.copy('assets/logo.svg','assets/favicon.svg')
