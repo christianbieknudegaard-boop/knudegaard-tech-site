@@ -69,7 +69,7 @@ for k,t in T.items():
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#071c31">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=6">
+<link rel="stylesheet" href="{p}style.css?v=7">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
