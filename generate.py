@@ -15,7 +15,7 @@ T={
  live='I App Store', soon='Kommer snart', visit='Besøk nettsiden →',
  ios='iPhone og iPad', android='Android', st_live='I App Store', st_test='I testing', st_later='Kommer senere',
  ios_sum='Skanlio, Lumtidy og Wordarc ligger i App Store. Off the Hook kommer snart.', android_sum='Skanlio, Lumtidy, Wordarc og Off the Hook er i testing nå.',
- company='Om selskapet', nav=('Apper','Om oss','Kontakt'), tagline='Små, gjennomtenkte apper uten reklame. Laget i Lillesand.', fapps='Apper', fco='Selskap', orgl='Org.nr.', sec_apps='Apper', sec_co='Selskapet',
+ company='Om selskapet', colead='Knudegaard Apps er et norsk enkeltpersonforetak som utvikler og gir ut sine egne apper.', nav=('Apper','Om oss','Kontakt'), tagline='Små, gjennomtenkte apper uten reklame. Laget i Lillesand.', fapps='Apper', fco='Selskap', orgl='Org.nr.', sec_apps='Apper', sec_co='Selskapet',
  f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge'),('Org.nr.','938 917 523')],
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
  name='Navn', email='E-post', msg='Melding', send='Send melding', sending='Sender …',
@@ -34,7 +34,7 @@ T={
  live='On the App Store', soon='Coming soon', visit='Visit the website →',
  ios='iPhone and iPad', android='Android', st_live='On the App Store', st_test='In testing', st_later='Coming later',
  ios_sum='Skanlio, Lumtidy and Wordarc are on the App Store. Off the Hook is coming soon.', android_sum='Skanlio, Lumtidy, Wordarc and Off the Hook are in testing now.',
- company='Company details', nav=('Apps','About','Contact'), tagline='Small, thoughtful apps with no ads. Made in Lillesand, Norway.', fapps='Apps', fco='Company', orgl='Org. no.', sec_apps='Apps', sec_co='Company',
+ company='Company details', colead='Knudegaard Apps is a Norwegian sole proprietorship that builds and publishes its own apps.', nav=('Apps','About','Contact'), tagline='Small, thoughtful apps with no ads. Made in Lillesand, Norway.', fapps='Apps', fco='Company', orgl='Org. no.', sec_apps='Apps', sec_co='Company',
  f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway'),('Org. no.','938 917 523')],
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
  name='Name', email='Email', msg='Message', send='Send message', sending='Sending …',
@@ -69,7 +69,7 @@ for k,t in T.items():
 <meta name="description" content="{t['desc']}">
 <meta name="theme-color" content="#071c31">
 <link rel="icon" href="{p}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{p}assets/apple-touch-icon.png">
-<link rel="stylesheet" href="{p}style.css?v=5">
+<link rel="stylesheet" href="{p}style.css?v=6">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Knudegaard Apps","address":{{"@type":"PostalAddress","streetAddress":"Eineråsen 21D","postalCode":"4790","addressLocality":"Lillesand","addressCountry":"NO"}},"identifier":"938917523"}}</script>
 </head>
 <body>
@@ -109,6 +109,7 @@ for k,t in T.items():
   <div class="twocol">
     <section class="reveal" id="selskap">
       <h2>{t['company']}</h2>
+      <p class="sublead">{t['colead']}</p>
       <dl class="facts">{facts}</dl>
     </section>
     <section class="reveal">
@@ -119,8 +120,8 @@ for k,t in T.items():
         <input type="hidden" name="subject" value="{t['subject']}">
         <input type="hidden" name="from_name" value="knudegaard.no">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label>{t['name']}<input name="name" autocomplete="name" required maxlength="100"></label>
-        <label>{t['email']}<input type="email" name="email" autocomplete="email" required maxlength="200"></label>
+        <div class="row2"><label>{t['name']}<input name="name" autocomplete="name" required maxlength="100"></label>
+        <label>{t['email']}<input type="email" name="email" autocomplete="email" required maxlength="200"></label></div>
         <label>{t['msg']}<textarea name="message" rows="5" required maxlength="5000"></textarea></label>
         <button type="submit">{t['send']}</button>
         <p class="status" role="status" aria-live="polite"></p>

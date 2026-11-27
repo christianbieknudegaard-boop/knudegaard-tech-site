@@ -101,7 +101,12 @@ h2 { font-size: 32px; letter-spacing: -0.03em; font-weight: 700; margin: 0 0 8px
 .plat.soon::before { background: #1c9bd6; box-shadow: 0 0 0 3px rgba(28,155,214,.15); }
 
 /* Selskap og kontakt */
-.twocol { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; margin-top: 110px; }
+.twocol { display: grid; grid-template-columns: 1fr 1.2fr; grid-template-rows: auto auto 1fr; column-gap: 40px; align-items: start; margin-top: 110px; }
+.twocol > section { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+.twocol h2 { align-self: end; }
+.twocol .sublead { margin-bottom: 20px; }
+.twocol .facts, .twocol .contact { margin: 0; align-self: start; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .facts { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 4px 22px; margin: 22px 0 0; font-size: 15.5px; }
 .facts div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); }
 .facts div:last-child { border-bottom: 0; }
@@ -158,6 +163,8 @@ body.plain .wrap { max-width: 760px; }
   .stack .i2 { left: 38%; top: 2%; width: 92px; height: 92px; border-radius: 21px; }
   .stack .i3 { left: 62%; top: 38%; width: 98px; height: 98px; border-radius: 22px; }
   .values, .apps, .twocol { grid-template-columns: 1fr; }
+  .twocol { grid-template-rows: none; }
+  .twocol > section { grid-row: auto; grid-template-rows: none; }
   h2 { font-size: 27px; }
   .sechead { margin-top: 72px; }
   .twocol { margin-top: 80px; gap: 56px; }
@@ -166,6 +173,7 @@ body.plain .wrap { max-width: 760px; }
   .fbrand { grid-column: 1 / -1; }
 }
 @media (max-width: 520px) {
+  .row2 { grid-template-columns: 1fr; }
   .facts div { flex-direction: column; gap: 2px; }
   .facts dd { text-align: left; }
 }
