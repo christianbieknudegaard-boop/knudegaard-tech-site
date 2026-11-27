@@ -14,7 +14,7 @@ T={
  oh='Du er fisken. Svøm opp fra korallrevet, unngå kroker og garn, og samle 24 fisker, de fleste med sin egen kraft.',
  live='I App Store', soon='Kommer snart', visit='Besøk nettsiden →',
  ios='iPhone og iPad', android='Android', st_live='I App Store', st_test='I testing', st_later='Kommer senere',
- ios_sum='Skanlio, Lumtidy og Wordarc ligger i App Store. Off the Hook kommer snart.', android_sum='Skanlio er i testing nå. De andre kommer etter hvert.',
+ ios_sum='Skanlio, Lumtidy og Wordarc ligger i App Store. Off the Hook kommer snart.', android_sum='Skanlio, Lumtidy, Wordarc og Off the Hook er i testing nå.',
  company='Om selskapet',
  f=[('Foretak','Knudegaard Apps'),('Bransje','Applikasjonsutvikling'),('Adresse','Eineråsen 21D, 4790 Lillesand, Norge'),('Org.nr.','938 917 523')],
  h='Kontakt oss', clead='Spørsmål om en app, samarbeid eller noe annet? Skriv til oss, så svarer vi så fort vi kan.',
@@ -33,7 +33,7 @@ T={
  oh='You’re the fish. Swim up from the reef, dodge hooks and nets, and collect 24 fish, most with a power of their own.',
  live='On the App Store', soon='Coming soon', visit='Visit the website →',
  ios='iPhone and iPad', android='Android', st_live='On the App Store', st_test='In testing', st_later='Coming later',
- ios_sum='Skanlio, Lumtidy and Wordarc are on the App Store. Off the Hook is coming soon.', android_sum='Skanlio is in testing now. The others will follow.',
+ ios_sum='Skanlio, Lumtidy and Wordarc are on the App Store. Off the Hook is coming soon.', android_sum='Skanlio, Lumtidy, Wordarc and Off the Hook are in testing now.',
  company='Company details',
  f=[('Company','Knudegaard Apps'),('Industry','Application development'),('Address','Eineråsen 21D, 4790 Lillesand, Norway'),('Org. no.','938 917 523')],
  h='Contact us', clead='Questions about an app, a partnership or anything else? Write to us and we’ll get back to you as soon as we can.',
@@ -102,9 +102,9 @@ for k,t in T.items():
   </div>
   <div class="apps">
     {card('skanlio','skanlio','Skanlio',t['sk'],'https://skanlio.app/','live','test')}
-    {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','later')}
-    {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','later')}
-    {card('offthehook','offthehook','Off the Hook',t['oh'],p+'offthehook/','soon','later')}
+    {card('lumtidy','lumtidy','Lumtidy',t['lt'],'https://lumtidy.app/','live','test')}
+    {card('wordarc','wordarc','Wordarc',t['wa'],'https://wordarc.app/','live','test')}
+    {card('offthehook','offthehook','Off the Hook',t['oh'],p+'offthehook/','soon','test')}
   </div>
 
   <div class="twocol">
