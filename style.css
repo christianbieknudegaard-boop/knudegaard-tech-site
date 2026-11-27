@@ -105,7 +105,9 @@ h2 { font-size: 32px; letter-spacing: -0.03em; font-weight: 700; margin: 0 0 8px
 .twocol > section { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
 .twocol h2 { align-self: end; }
 .twocol .sublead { margin-bottom: 20px; }
-.twocol .facts, .twocol .contact { margin: 0; align-self: start; }
+.twocol .facts, .twocol .contact { margin: 0; }
+.twocol .facts { align-self: stretch; display: flex; flex-direction: column; }
+.twocol .facts div { flex: 1; align-items: center; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .facts { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 4px 22px; margin: 22px 0 0; font-size: 15.5px; }
 .facts div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); }
@@ -174,6 +176,6 @@ body.plain .wrap { max-width: 760px; }
 }
 @media (max-width: 520px) {
   .row2 { grid-template-columns: 1fr; }
-  .facts div { flex-direction: column; gap: 2px; }
+  .facts div, .twocol .facts div { flex-direction: column; gap: 2px; align-items: flex-start; }
   .facts dd { text-align: left; }
 }
